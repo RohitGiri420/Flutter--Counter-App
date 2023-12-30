@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:counterapp/HomePage.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -9,28 +13,24 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  int count =0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    Timer(Duration(seconds: 5), () {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(),));
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body:Center(
+      body: Center(
         child: Container(
-          child: Text("$count",style: TextStyle(fontSize: 80,fontFamily: 'Rubix'),)
+          child: LottieBuilder.asset('asset/lottie/Animation.json'),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black54,
-        shape: CircleBorder(),
-        child:Icon(Icons.add,size: 35,color: Colors.white70),
-        onPressed: (){
-        setState(() {
-          count++;
-        });
-      },
-      ),
-
-
     );
   }
 }
