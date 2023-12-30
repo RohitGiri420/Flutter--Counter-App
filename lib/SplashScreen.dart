@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
+
       body: Center(
         child: Container(
           child: LottieBuilder.asset('asset/lottie/Animation.json'),
